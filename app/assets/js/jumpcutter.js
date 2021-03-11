@@ -32,18 +32,20 @@ async function start() {
   const args2 = ['-i', INPUT_FILE, '-ab', '160k', '-ac', '2', '-ar', SAMPLE_RATE, '-vn', `${TEMP_FOLDER}/audio.wav`];
   const args3 = ['-i', `${TEMP_FOLDER}/input.mp4`, '2>&1'];
 
-  [args1, args2, args3].forEach((params) => {
-    $('.preview').innerHTML += params.join(' ') + '<br>';
+  [args1, args2, args3].forEach(async (params) => {
+    $('ul.preview').append(<li><span>{params.join(' ')}</span></li>);
+    await new Promise(setTimeout);
+    $('ul.preview').scrollTop = $('ul.preview').scrollHeight;
   });
 
   const process1 = await ffmpeg(args1);
-  await handleProcess(process1);
+  const { stderr: stderr1 } = await handleProcess(process1);
 
   const process2 = await ffmpeg(args2);
-  await handleProcess(process2);
+  const { stderr: stderr2 } = await handleProcess(process2);
 
   const process3 = await ffmpeg(args3);
-  const { stdout, stderr } = await handleProcess(process3);
+  const { stderr: stderr3 } = await handleProcess(process3);
 
   const {
     sample_rate,
@@ -54,7 +56,15 @@ async function start() {
   });
 
   console.log(JSON.stringify({ sample_rate, sample_count, max_volume }));
-  
+
+  [...stderr1, ...stderr2, ...stderr3].forEach((line) => {
+    const regex = /Stream #.*Video.* ([0-9]*) fps/;
+    const [_, fps] = line.match(regex) || [];
+    if (fps === undefined) return;
+    frameRate = fps;
+    console.log('[FRAMERATE]', frameRate);
+  });
+
 }
 
 function buildArgs() {
@@ -99,14 +109,18 @@ async function handleProcess(process) {
 
   for await (const line of read_pipe(process.stdout)) {
     stdout.push(line);
-    console.log('[STDOUT]', line);
-    $('textarea').innerHTML += `${line}<br>`;
+    console.log('[STDOUT] ', line);
+    $('ul.output').append(<li><span>{line}</span></li>);
+    await new Promise(setTimeout);
+    $('ul.output').scrollTop = $('ul.output').scrollHeight;
   }
 
   for await (const line of read_pipe(process.stderr)) {
     stderr.push(line);
-    console.log('[STDERR]', line);
-    $('textarea').innerHTML += `<stderr>${line}</stderr><br>`;
+    console.log('[STDERR] ', line);
+    $('ul.output').append(<li><span>{line}</span></li>);
+    await new Promise(setTimeout);
+    $('ul.output').scrollTop = $('ul.output').scrollHeight;
   }
 
   return { stdout, stderr };

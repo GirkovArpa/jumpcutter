@@ -55,12 +55,12 @@
         </div>
       </div>
       <div .row>Constructed Command Line:</div>
-      <div .row>
-        <span .preview .faded></span>
+      <div .row .preview>
+        <ul .preview .faded></ul>
       </div>
       <div .row>Command Line Output:</div>
       <div .row .output>
-        <textarea .output readonly></textarea>
+        <ul .output></ul>
       </div>
       <div .row>
         <div .col>
@@ -74,10 +74,10 @@
         </div>
         <div .col>
           <div .row .full-height>
-            <span .checkbox .right>
-              <input |checkbox #checkbox />
+            <div .checkbox .full-height .right>
+              <input |checkbox #checkbox/>
               <label for="checkbox">Test Mode (Do not run command line)</label>
-            </span>
+            </div>
           </div>
         </div>
       </div>

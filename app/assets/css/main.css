@@ -4,7 +4,7 @@
 
 html {
   size: max-content;
-  min-width: max-content;
+  min-width: min-content;
   min-height: max-content;
   overflow: hidden;
 }
@@ -35,6 +35,22 @@ span {
 
 label, button, input {
   vertical-align: middle;
+}
+
+ul {
+  size: *;
+  overflow: scroll;
+  margin: 0;
+  list-style: none;
+  padding: 0.5em;
+}
+
+li {
+  width: max-content;
+}
+
+li>span {
+  word-wrap: nowrap;
 }
 
 .left {
@@ -105,15 +121,23 @@ label, button, input {
   height: 20px;
 }
 
-.preview {
-  text-align: left;
-  overflow-x: auto;
+div.row.preview {
+  height: 5em;
 }
 
-.output {
+ul.preview {
+  text-align: left;
+  background: rgb(56, 56, 56);
+  color: rgb(234, 255, 160);
+}
+
+div.row.output {
   size: *;
-  min-height: 2em;
-  color: white;
+  min-height: 5em;
+}
+
+ul.output {
+  color: salmon;
   background: black;
   opacity: 0.9;
 }
@@ -128,8 +152,10 @@ label, button, input {
 
 .checkbox {
   min-width: max-content;
+  size: *;
+  vertical-align: middle;
 }
 
-stderr {
-  color: salmon;
+.checkbox > label {
+  padding-bottom: -1em;
 }
