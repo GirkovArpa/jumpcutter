@@ -17,4 +17,5 @@ No, seriously.  It's under construction and doesn't work yet!
 
 1. Install Rust.
 2. Download [`sciter.dll`](https://github.com/c-smile/sciter-js-sdk/blob/main/bin/windows/x64/sciter.dll) and put it in this folder.
-3. Run `cargo run` from a console window inside this folder.
+3. Download [`packfolder.exe`](https://github.com/c-smile/sciter-js-sdk/blob/main/bin/windows/packfolder.exe) and put it in this folder.
+4. Run `cargo run` from a console window inside this folder.
