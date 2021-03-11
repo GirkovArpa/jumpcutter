@@ -1,0 +1,19 @@
+[package]
+name = "jumpcutter-lite"
+version = "0.1.0"
+authors = ["GirkovArpa <girkovarpa@protonmail.com>"]
+edition = "2018"
+
+[dependencies]
+sciter-rs = "*"
+hound = "*"
+
+[target.'cfg(windows)'.build-dependencies]
+winres = "0.1"
+
+[package.metadata.winres]
+OriginalFilename = "jumpcutter-lite.exe"
+LegalCopyright = "Copyright © GirkovArpa 2021"
+FileDescription = "JumpCutter Lite: Automatically compress silence in videos!"
+ProductName = "JumpCutter-Lite"
+ProductVersion = "0.1.0"

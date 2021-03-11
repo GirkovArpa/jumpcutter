@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>JumpCutter Lite</title>
+    <link href="assets/css/main.css" rel="stylesheet">
+    <script src="assets/js/main.js" type="text/javascript" type="module"></script>
+  </head>
+
+  <body>
+    <div .col .container>
+      <div .row>
+        <span .title>JumpCutter<sup>lite</sup></span>
+      </div>
+      <div .row>
+        <span .subtitle>Automatically compress silence in a video!</span>
+      </div>
+      <div .row>
+        <div .col .labels>
+          <div .row><span>Input File</span></div>
+          <div .row><span>URL (not yet working)</span></div>
+          <div .row><span>Output File</span></div>
+          <div .row><span>Silent Threshold</span></div>
+          <div .row><span>Sounded Speed</span></div>
+          <div .row><span>Silent Speed</span></div>
+          <div .row><span>Frame Margin</span></div>
+          <div .row><span>Sample Rate</span></div>
+          <div .row><span>Frame Rate</span></div>
+          <div .row><span>Frame Quality</span></div>
+        </div>
+        <div .col .textboxes>
+          <div .row><input #input-file/></div>
+          <div .row><input #url disabled/></div>
+          <div .row><input #output-file/></div>
+          <div .row><input #silent-threshold |decimal value="0.03"/></div>
+          <div .row><input #sounded-speed |decimal value="1.0"/></div>
+          <div .row><input #silent-speed |decimal value="5.0"/></div>
+          <div .row><input #frame-margin |number value="1"/></div>
+          <div .row><input #sample-rate |number value="44100"/></div>
+          <div .row><input #frame-rate |number value="30"/></div>
+          <div .row><input #frame-quality |number value="3"/></div>
+        </div>
+        <div .col .buttons>
+          <div .row><span><button #browse>Browse</button></span></div>
+          <div .row></div>
+          <div .row><span><button #save-as>Save As...</button></span></div>
+          <div .row></div>
+          <div .row></div>
+          <div .row></div>
+          <div .row></div>
+          <div .row></div>
+          <div .row></div>
+          <div .row></div>
+        </div>
+      </div>
+      <div .row>Constructed Command Line:</div>
+      <div .row>
+        <span .preview .faded></span>
+      </div>
+      <div .row>Command Line Output:</div>
+      <div .row .output>
+        <textarea .output readonly></textarea>
+      </div>
+      <div .row>
+        <div .col>
+          <div .row .buttons>
+              <button #start>Start</button>
+              <button>Clear All</button>
+              <button>PyCharm Me</button>
+              <button>Help</button>
+              <button>Exit</button>
+          </div>
+        </div>
+        <div .col>
+          <div .row .full-height>
+            <span .checkbox .right>
+              <input |checkbox #checkbox />
+              <label for="checkbox">Test Mode (Do not run command line)</label>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div .row .version .faded>
+        <span .left>Version = 14 Sept 2020</span>
+        <span .right>PySimpleGUI Version 4.29.0.8</span>
+      </div>
+    </div>
+  </body>
+
+</html>

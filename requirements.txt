@@ -1,5 +1,0 @@
-Pillow
-audiotsm
-scipy
-numpy
-pytube

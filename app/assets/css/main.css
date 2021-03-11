@@ -1,0 +1,135 @@
+:root {
+  font-size: 10pt;
+}
+
+html {
+  size: max-content;
+  min-width: max-content;
+  min-height: max-content;
+  overflow: hidden;
+}
+
+body {
+  size: *;
+  margin: 0;
+}
+
+.row {
+  flow: horizontal;
+  width: *;
+  height: max-content;
+  margin: .5em;
+}
+
+.col {
+  flow: vertical;
+  size: *;
+}
+
+span {
+  width: *;
+  height: max-content;
+  text-align: center;
+  vertical-align: middle;
+}
+
+label, button, input {
+  vertical-align: middle;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.full-height {
+  height: *;
+}
+
+.faded {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 0.25em 0.5em;
+  overflow-y: scroll;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.labels {
+  width: max-content;
+}
+
+.labels>.row {
+  size: *;
+}
+
+.labels>.row>span {
+  text-align: right;
+}
+
+.textboxes {
+  width: *;
+}
+
+.textboxes>.row>input {
+  size: *;
+}
+
+.buttons>.row {
+  size: *;
+}
+
+.col.buttons {
+  width: max-content;
+}
+
+.col.buttons>.row>span {
+  text-align: left;
+  size: *;
+}
+
+.col.buttons>.row>span>button {
+  height: 20px;
+}
+
+.preview {
+  text-align: left;
+  overflow-x: auto;
+}
+
+.output {
+  size: *;
+  min-height: 2em;
+  color: white;
+  background: black;
+  opacity: 0.9;
+}
+
+.buttons>button {
+  margin: 0 0.5em;
+}
+
+.buttons>button:first-child {
+  margin-left: 0;
+}
+
+.checkbox {
+  min-width: max-content;
+}
+
+stderr {
+  color: salmon;
+}
