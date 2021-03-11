@@ -1,5 +1,5 @@
 import { $, $$, encode } from '@sciter';
-import { fs } from '@sys';
+import { fs, spawn } from '@sys';
 import { read_pipe } from './read_pipe.js';
 
 export { start, buildArgs };
@@ -90,7 +90,7 @@ async function deletePath(s) {
 }
 
 function ffmpeg(args) {
-  return sys.spawn(['ffmpeg', ...args], { stdout: 'pipe', stderr: 'pipe' });
+  return spawn(['ffmpeg', ...args], { stdout: 'pipe', stderr: 'pipe' });
 }
 
 async function handleProcess(process) {
